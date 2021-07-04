@@ -1,0 +1,19 @@
+1 | The Cranberries | Dolores ORiordan
+
+2 | Cigarettes After Sex | Greg Gonzalez
+
+3 | The Kinks | Ray Davies
+
+4 | Daft Punk | Guy-Manuel de Homem-Christo
+
+5 | Eric Clapton | Eric Clapton
+
+6 | Queen | Freddie Mercury
+
+7 | Pink Floyd | David Gilmour
+
+8 | Hooverphonic | Alex Callier
+
+9 | Massive Attack | Robert Del Naja
+
+10 | Portishead | Beth Gibbons

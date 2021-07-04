@@ -1,0 +1,13 @@
+1 | Trip hop
+
+2 | Dream pop
+
+3 | Rock
+
+4 | Electronica
+
+5 | House
+
+6 | Alternative rock
+
+7 | Indie rock
