@@ -38,11 +38,11 @@ WHERE pseudonym NOT LIKE '%% %%'
 
 pprint(sel_5)
 
-# sel_6 = connection.execute(f"""SELECT name FROM Tracks
-# WHERE CONTAINS(name, 'me')
-# ;""").fetchall()
+sel_6 = connection.execute(f"""SELECT name FROM Tracks
+WHERE name LIKE '%%Me%%'
+;""").fetchall()
 
-# pprint(sel_6)
+pprint(sel_6)
 
 # количество исполнителей в каждом жанре
 sel_7 = connection.execute(f"""
@@ -147,16 +147,15 @@ pprint(sel_14)
 
 # название альбомов, содержащих наименьшее количество треков
 sel_15 = connection.execute(f"""
-SELECT ts.name, ts.totalCount FROM
-(SELECT a.id, a.name, COUNT(t.id) totalCount FROM
-(albums a JOIN tracks t ON a.id = t.album_id)
-GROUP BY a.id)
-ts
-WHERE ts.totalCount = (SELECT MIN(ts.totalCount) FROM
-(SELECT a.id, a.name, COUNT(t.id) AS totalCount FROM
-(albums a JOIN tracks t ON a.id = t.album_id)
-GROUP BY a.id)
-ts);
+SELECT a.name, COUNT(t.id) FROM albums a
+JOIN tracks t ON a.id = t.album_id
+GROUP BY a.name
+HAVING COUNT(t.id) = (
+    SELECT COUNT(t.id) FROM albums a
+    JOIN tracks t ON a.id = t.album_id
+    GROUP BY a.name
+    ORDER BY COUNT(t.id)
+    LIMIT 1);
 """).fetchall()
 
 pprint(sel_15)
